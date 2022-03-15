@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # step one, check if zsh is installed
 which zsh
 zsh_installed=$?
