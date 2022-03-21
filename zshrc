@@ -31,6 +31,8 @@ alias sl='ls'
 alias py='python3'
 alias python='python3'
 alias ffx='open $1 -a Firefox\ Developer\ Edition'
+alias dc='docker-compose'
+alias d='docker'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
