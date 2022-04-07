@@ -7,6 +7,8 @@
 :syntax on
 :set backspace=indent,eol,start
 :set cc=121
+:set hlsearch
 :set incsearch
 :hi ColorColumn ctermbg=magenta
 au Filetype go set noexpandtab | set tabstop=4 | set shiftwidth=4
+nnoremap <esc><esc> :noh<CR>
