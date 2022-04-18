@@ -11,4 +11,5 @@
 :set incsearch
 :hi ColorColumn ctermbg=magenta
 au Filetype go set noexpandtab | set tabstop=4 | set shiftwidth=4
+au Filetype *sh set noexpandtab | set tabstop=6 | set shiftwidth=6
 nnoremap <esc><esc> :noh<CR>
