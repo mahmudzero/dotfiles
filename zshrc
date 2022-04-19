@@ -26,6 +26,7 @@ function bootstrap {
 
 	# User configuration
 	export PATH="/opt/homebrew/bin:$PATH"
+	export PATH="$HOME/go/bin:$PATH"
 
 	alias code='open $1 -a Visual\ Studio\ Code'
 	alias sl='ls'
