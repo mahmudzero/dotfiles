@@ -35,6 +35,7 @@ function bootstrap {
 	alias ffx='open $1 -a Firefox\ Developer\ Edition'
 	alias dc='docker-compose'
 	alias d='docker'
+	alias v='vim'
 
 	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
