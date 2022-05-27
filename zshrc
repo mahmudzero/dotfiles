@@ -40,6 +40,8 @@ function bootstrap {
 	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+	[[ ! -f ~/.profile ]] || source ~/.profile
+
 	eval "$(rbenv init - zsh)"
 
 	export NVM_DIR="$HOME/.nvm"
