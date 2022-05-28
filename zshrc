@@ -37,6 +37,14 @@ function bootstrap {
 	alias d='docker'
 	alias v='vim'
 
+	function gv {
+		grep -rn $1 $(2:-./) | fzf | vim -q /dev/stdin
+	}
+
+	function ggv {
+		git grep -rn $1 $(2:-./) | fzf | vim -q /dev/stdin
+	}
+
 	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
