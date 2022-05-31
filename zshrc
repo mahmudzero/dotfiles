@@ -38,11 +38,11 @@ function bootstrap {
 	alias v='vim'
 
 	function gv {
-		grep -rn $1 $(2:-./) | fzf | vim -q /dev/stdin
+		vim $(grep -rn $1 $(2:-./) | fzf | awk '{split($0, a, ":"); print a[1]}')
 	}
 
 	function ggv {
-		git grep -rn $1 $(2:-./) | fzf | vim -q /dev/stdin
+		vim $(git grep -rn $1 $(2:-./) | fzf | awk '{split($0, a, ":"); print a[1]}')
 	}
 
 	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
