@@ -37,13 +37,23 @@ function bootstrap {
 	alias d='docker'
 	alias v='vim'
 
-	function gv {
-		vim $(grep -rn $1 $(2:-./) | fzf | awk '{split($0, a, ":"); print a[1]}')
-	}
+      function gv {
+            gv_dir=$($2 || ./)
+            gv_file=$(grep -rn $1 $gv_dir | fzf | awk '{split($0, a, ":"); print a[1]}')
+            if [[ $gv_file ]]; then
+                  vim $gv_file
+            fi
 
-	function ggv {
-		vim $(git grep -rn $1 $(2:-./) | fzf | awk '{split($0, a, ":"); print a[1]}')
-	}
+      }
+
+      function ggv {
+            ggv_dir=$($2 || ./)
+            ggv_file=$(git grep -rn $1 $ggv_dir | fzf | awk '{split($0, a, ":"); print a[1]}')
+            echo "reading file $ggv_file"
+            if [[ $ggv_file ]]; then
+                  vim $ggv_file
+            fi
+      }
 
 	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
