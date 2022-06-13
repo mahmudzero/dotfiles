@@ -44,7 +44,9 @@ function bootstrap {
 		ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 		echo "reading file $ggv_file"
 		if [[ $ggv_file ]]; then
-			vim $ggv_file $ggv_ln
+			cmd="vim $ggv_file $ggv_ln"
+			eval ${cmd}
+			print -s $cmd
 		fi
 	}
 
@@ -55,7 +57,9 @@ function bootstrap {
 		ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 		echo "reading file $ggv_file"
 		if [[ $ggv_file ]]; then
-			vim $ggv_file $ggv_ln
+			cmd="vim $ggv_file $ggv_ln"
+			eval ${cmd}
+			print -s $cmd
 		fi
 	}
 
