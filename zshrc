@@ -39,7 +39,7 @@ function bootstrap {
 
 	function gv {
 		ggv_dir=$($2 || ./)
-		gres=$(grep -rn $1 $ggv_dir | fzf)
+		gres=$(grep -rn $1 $ggv_dir | fzy)
 		ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 		ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 		echo "reading file $ggv_file"
@@ -52,7 +52,7 @@ function bootstrap {
 
 	function ggv {
 		ggv_dir=$($2 || ./)
-		gres=$(git grep -rn $1 $ggv_dir | fzf)
+		gres=$(git grep -rn $1 $ggv_dir | fzy)
 		ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 		ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 		echo "reading file $ggv_file"
