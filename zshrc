@@ -63,6 +63,14 @@ function bootstrap {
 		fi
 	}
 
+	function vrs {
+		ggv_file=$(echo $1 | awk '{split($0, a, ":"); print a[1]}')
+		ggv_ln=$(echo $1 | awk '{split($0, a, ":"); print("+" a[2])}')
+		cmd="vim $ggv_file $ggv_ln"
+		eval ${cmd}
+		print -s $cmd
+	}
+
 	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
