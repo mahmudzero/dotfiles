@@ -38,29 +38,31 @@ alias d='docker'
 alias v='vim'
 
 function gv {
-	ggv_dir=$($2 || ./)
-	gres=$(grep -rn $1 $ggv_dir | fzy)
-	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
-	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
-	echo "reading file $ggv_file"
-	if [[ $ggv_file ]]; then
-		cmd="vim $ggv_file $ggv_ln"
-		eval ${cmd}
-		print -s $cmd
-	fi
+	# ggv_dir=$($2 || ./)
+	# gres=$(grep -rn $1 $ggv_dir | fzy)
+	# ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
+	# ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
+	# echo "reading file $ggv_file"
+	# if [[ $ggv_file ]]; then
+	# 	cmd="vim $ggv_file $ggv_ln"
+	# 	eval ${cmd}
+	# 	print -s $cmd
+	# fi
+	vim <(grep -rnE $1)
 }
 
 function ggv {
-	ggv_dir=$($2 || ./)
-	gres=$(git grep -rn $1 $ggv_dir | fzy)
-	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
-	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
-	echo "reading file $ggv_file"
-	if [[ $ggv_file ]]; then
-		cmd="vim $ggv_file $ggv_ln"
-		eval ${cmd}
-		print -s $cmd
-	fi
+	# ggv_dir=$($2 || ./)
+	# gres=$(git grep -rn $1 $ggv_dir | fzy)
+	# ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
+	# ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
+	# echo "reading file $ggv_file"
+	# if [[ $ggv_file ]]; then
+	# 	cmd="vim $ggv_file $ggv_ln"
+	# 	eval ${cmd}
+	# 	print -s $cmd
+	# fi
+	vim <(git grep -rnE $1)
 }
 
 function vrs {
