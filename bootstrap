@@ -66,8 +66,8 @@ function ggv {
 function vrs {
 	ggv_file=$(echo $1 | awk '{split($0, a, ":"); print a[1]}')
 	ggv_ln=$(echo $1 | awk '{split($0, a, ":"); print("+" a[2])}')
-	cmd="vim $ggv_file $ggv_ln"
-	eval ${cmd}
+	cmd="vim -o $ggv_file $ggv_ln"
+	echo $ggv_file $ggv_ln | xargs -o vim
 	print -s $cmd
 }
 

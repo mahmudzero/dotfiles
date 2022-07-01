@@ -1,3 +1,4 @@
+:set shell=zsh\ -i
 :set nowrap
 :set expandtab
 :set tabstop=2
@@ -19,3 +20,4 @@ function Vres()
   let line = getline('.')
   execute '!vrs ' . line
 endfunction
+command Vres call Vres()

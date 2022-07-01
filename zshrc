@@ -1,6 +1,6 @@
 pwd=$PWD
 
-if [[ $1 != 'skip_update' ]]; then
+if [[ $1 != 'skip_update' ]] && [[ -o login ]]; then
 	cd ~/dotfiles
 	echo "Checking for dotfiles updates..."
 	git fetch
@@ -12,4 +12,8 @@ if [[ $1 != 'skip_update' ]]; then
 fi
 
 source ~/dotfiles/bootstrap
-cd $2
+if [[ $2 != '' ]]; then
+	cd $2
+else
+	cd $pwd
+fi
