@@ -16,12 +16,6 @@ au Filetype c  set noexpandtab | set tabstop=6 | set shiftwidth=4
 au Filetype *sh set noexpandtab | set tabstop=6 | set shiftwidth=6
 nnoremap <esc><esc> :noh<CR>
 
-function Vres()
-  let line = getline('.')
-  execute '!vrs ' . line
-endfunction
-command Vres call Vres()
-
 function! FzyCommand(choice_command, vim_command)
   try
     let output = system(a:choice_command . " | fzy ")
