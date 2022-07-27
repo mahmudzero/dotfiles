@@ -22,10 +22,20 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH="/opt/homebrew/bin:$PATH"
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+source $ZSH/oh-my-zsh.sh
+
 export PATH="$HOME/go/bin:$PATH"
 
 alias code='open $1 -a Visual\ Studio\ Code'
@@ -39,7 +49,7 @@ alias v='vim'
 
 function gv {
 	ggv_dir=$($2 || ./)
-	gres=$(grep -rn $1 $ggv_dir | fzy)
+	gres=$(grep -rnE $1 $ggv_dir | fzy)
 	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 	echo "reading file $ggv_file"
@@ -52,7 +62,7 @@ function gv {
 
 function ggv {
 	ggv_dir=$($2 || ./)
-	gres=$(git grep -rn $1 $ggv_dir | fzy)
+	gres=$(git grep -rnE $1 $ggv_dir | fzy)
 	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 	echo "reading file $ggv_file"
