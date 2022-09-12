@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/mahmudahmad/Development/work/repo-auditing/sre-1894-initial_implementation/src/jobs/auditor'
+let g:netrw_dirhist_2='/Users/mahmudahmad/Development/work/tooling/main/terraform/modules/azure-dbaas'
+let g:netrw_dirhist_1='/Users/mahmudahmad/Development/work/repo-auditing/sre-1894-initial_implementation/src'
