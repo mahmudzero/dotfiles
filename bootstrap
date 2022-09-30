@@ -79,7 +79,7 @@ function ggv {
 
 [[ ! -f ~/.profile ]] || source ~/.profile
 
-eval "$(rbenv init - zsh)"
+which rbenv && eval "$(rbenv init - zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
