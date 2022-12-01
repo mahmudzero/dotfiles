@@ -12,10 +12,11 @@
 :set hlsearch
 :set incsearch
 :hi ColorColumn ctermbg=magenta
-au Filetype go  set noexpandtab | set tabstop=6 | set shiftwidth=4
-au Filetype c   set noexpandtab | set tabstop=6 | set shiftwidth=4
-au Filetype cpp set noexpandtab | set tabstop=6 | set shiftwidth=4
-au Filetype *sh set noexpandtab | set tabstop=6 | set shiftwidth=6
+au Filetype go   set noexpandtab | set tabstop=6 | set shiftwidth=4
+au Filetype c    set noexpandtab | set tabstop=6 | set shiftwidth=4
+au Filetype cpp  set noexpandtab | set tabstop=6 | set shiftwidth=4
+au Filetype *sh  set noexpandtab | set tabstop=6 | set shiftwidth=6
+au Filetype rust set noexpandtab | set tabstop=6 | set shiftwidth=6
 au Filetype markdown set wrap | set cc=0
 nnoremap <esc><esc> :noh<CR>
 
