@@ -74,6 +74,14 @@ function ggv {
 	fi
 }
 
+function gwn {
+	git worktree add -b $1 $($2 || '../'$1)
+}
+
+function gwr {
+	git worktree add -b $1 ($2 || '..'$1) 'origin/'$($3 || $2)
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
