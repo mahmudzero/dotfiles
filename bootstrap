@@ -81,7 +81,7 @@ function gwn {
 }
 
 function gwr {
-	cmd="git worktree add -b $1 ${2:-"../$1"} 'origin/'${3:-$2)}"
+	cmd="git worktree add -b $1 ${2:-"../$1"} 'origin/'${3:-$2}"
 	eval ${cmd}
 	print -s $cmd
 }
