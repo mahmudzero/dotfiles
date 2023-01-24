@@ -75,8 +75,10 @@ function ggv {
 }
 
 function gwn {
-	cmd="git worktree add -b $1 ${2:-"../$1"}"
+	dir=${2:-$1}
+	cmd="git worktree add -b $1 ../$dir"
 	eval ${cmd}
+	cd ../$dir
 	print -s $cmd
 }
 
@@ -97,6 +99,7 @@ function gwr {
 
 	cmd="git worktree add -b $1 ../$dir origin/$rem"
 	eval ${cmd}
+	cd ../$dir
 	print -s $cmd
 }
 
