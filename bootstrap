@@ -24,7 +24,7 @@ plugins=(git)
 
 
 # User configuration
-export EDITOR=vi
+export EDITOR=vim
 export PATH="/opt/homebrew/bin:$PATH"
 
 if type brew &>/dev/null
