@@ -26,6 +26,7 @@ plugins=(git)
 # User configuration
 export EDITOR=vim
 export PATH="/opt/homebrew/bin:$PATH"
+export PAGER="less -S"
 
 if type brew &>/dev/null
 then
