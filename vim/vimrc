@@ -12,6 +12,7 @@
 :set hlsearch
 :set incsearch
 :hi ColorColumn ctermbg=magenta
+:set bg=dark
 au Filetype go   set noexpandtab | set tabstop=6 | set shiftwidth=4
 au Filetype c    set noexpandtab | set tabstop=6 | set shiftwidth=4
 au Filetype cpp  set noexpandtab | set tabstop=6 | set shiftwidth=4
