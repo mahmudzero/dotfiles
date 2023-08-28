@@ -28,7 +28,26 @@ fi
 # install powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
+if [ -d "$HOME/.zshrc" ]; then
+	echo "Deleting $HOME/.zshrc"
+	rm -rf $HOME/.zshrc
+fi
 ln -s ./zshrc $HOME/.zshrc
+
+if [ -d "$HOME/.zshrc" ]; then
+	echo "Deleting $HOME/.vim"
+	rm -rf $HOME/.vim
+fi
 ln -s ./vim $HOME/.vim
+
+if [ -d "$HOME/.p10k.zsh" ]; then
+	echo "Deleting $HOME/.p10k.zsh"
+	rm -rf $HOME/.p10k.zsh
+fi
 ln -s ./p10k.zsh $HOME/.p10k.zsh
+
+if [ -d "$HOME/.tmux.conf" ]; then
+	echo "Deleting $HOME/.tmux.conf"
+	rm -rf $HOME/.tmux.conf
+fi
 ln -s ./tmux.conf $HOME/.tmux.conf
