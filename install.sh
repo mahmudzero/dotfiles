@@ -20,7 +20,7 @@ fi
 
 echo 'ZSH is main shell...'
 
-if [ ! -d "$HOME/.oh_my_zsh" ]; then
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	# install oh my zsh
 	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
@@ -32,22 +32,22 @@ if [ -d "$HOME/.zshrc" ]; then
 	echo "Deleting $HOME/.zshrc"
 	rm -rf $HOME/.zshrc
 fi
-ln -s ./zshrc $HOME/.zshrc
+ln -s $PWD/zshrc $HOME/.zshrc
 
 if [ -d "$HOME/.zshrc" ]; then
 	echo "Deleting $HOME/.vim"
 	rm -rf $HOME/.vim
 fi
-ln -s ./vim $HOME/.vim
+ln -s $PWD/vim $HOME/.vim
 
 if [ -d "$HOME/.p10k.zsh" ]; then
 	echo "Deleting $HOME/.p10k.zsh"
 	rm -rf $HOME/.p10k.zsh
 fi
-ln -s ./p10k.zsh $HOME/.p10k.zsh
+ln -s $PWD/p10k.zsh $HOME/.p10k.zsh
 
 if [ -d "$HOME/.tmux.conf" ]; then
 	echo "Deleting $HOME/.tmux.conf"
 	rm -rf $HOME/.tmux.conf
 fi
-ln -s ./tmux.conf $HOME/.tmux.conf
+ln -s $PWD/tmux.conf $HOME/.tmux.conf
