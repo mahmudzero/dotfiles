@@ -26,7 +26,12 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # install powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+PLVL10K_DIR="${ZSH_CUSTOM:$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+if [ -d $PLVL10K_DIR ]; then
+	echo "Deleting powerlevel10k"
+	rm -rf $PLVL10K_DIR
+fi
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $PLVL10K_DIR
 
 if [ -f "$HOME/.zshrc" ]; then
 	echo "Deleting $HOME/.zshrc"
