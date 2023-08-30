@@ -34,7 +34,7 @@ if [ -d "$HOME/.zshrc" ]; then
 fi
 ln -s $PWD/zshrc $HOME/.zshrc
 
-if [ -d "$HOME/.zshrc" ]; then
+if [ -d "$HOME/.vim" ]; then
 	echo "Deleting $HOME/.vim"
 	rm -rf $HOME/.vim
 fi
