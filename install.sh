@@ -4,21 +4,27 @@
 which zsh
 zsh_installed=$?
 
-if [ $zsh_installed -ne 0 ]
-then
+if [ $zsh_installed -ne 0 ]; then
   # if not raise an error
-  echo 'Please install ZSH before continuing!'
+  echo "Please install ZSH before continuing!"
   exit 1
 fi
 
-echo 'Setting ZSH as main shell...'
+which fzy
+fzy_installed=$?
+if [ $fzy_installed -ne 0 ]; then
+	echo "Please install fzy (sudo apt install fzy || brew install fzy)"
+	exit 1
+fi
+
+echo "Setting ZSH as main shell..."
 if [ $CODESPACES ]; then
 	sudo chsh -s $(which zsh) $(whoami)
 else
 	chsh -s $(which zsh)
 fi
 
-echo 'ZSH is main shell...'
+echo "ZSH is main shell..."
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	# install oh my zsh
@@ -26,12 +32,12 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # install powerlevel10k
-PLVL10K_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-if [ -d $PLVL10K_DIR ]; then
+plvl10k_dir="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+if [ -d $plvl10k_dir ]; then
 	echo "Deleting powerlevel10k"
-	rm -rf $PLVL10K_DIR
+	rm -rf $plvl10k_dir
 fi
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $PLVL10K_DIR
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $plvl10k_dir
 
 if [ -f "$HOME/.zshrc" ]; then
 	echo "Deleting $HOME/.zshrc"
