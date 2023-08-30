@@ -26,7 +26,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # install powerlevel10k
-PLVL10K_DIR="${ZSH_CUSTOM:$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+PLVL10K_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 if [ -d $PLVL10K_DIR ]; then
 	echo "Deleting powerlevel10k"
 	rm -rf $PLVL10K_DIR
