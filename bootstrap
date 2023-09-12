@@ -25,6 +25,7 @@ plugins=(git)
 
 # User configuration
 export EDITOR=vim
+export GIT_EDITOR=vim
 export PATH="/opt/homebrew/bin:$PATH"
 export PAGER="less -S"
 export ICLOUD_DRIVE="$HOME/Library/Mobile Documents/"
