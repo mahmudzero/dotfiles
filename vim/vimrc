@@ -9,6 +9,7 @@
 :syntax on
 :set backspace=indent,eol,start
 :set cc=121
+:set tw=120
 :set hlsearch
 :set incsearch
 :hi ColorColumn ctermbg=magenta
