@@ -17,6 +17,13 @@ if [ $fzy_installed -ne 0 ]; then
 	exit 1
 fi
 
+which tmux
+tmux_installed=$?
+if [ $fzy_installed -ne 0 ]; then
+	echo "Please install tmux (sudo apt install tmux || brew install tmux)"
+	exit 1
+fi
+
 echo "Setting ZSH as main shell..."
 if [ $CODESPACES ]; then
 	sudo chsh -s $(which zsh) $(whoami)
