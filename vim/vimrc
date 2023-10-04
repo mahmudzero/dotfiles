@@ -14,12 +14,13 @@
 :set incsearch
 :hi ColorColumn ctermbg=magenta
 :set bg=dark
-au Filetype go    set noexpandtab | set tabstop=6 | set shiftwidth=4
-au Filetype c     set noexpandtab | set tabstop=6 | set shiftwidth=4
-au Filetype cpp   set noexpandtab | set tabstop=6 | set shiftwidth=4
-au Filetype *sh   set noexpandtab | set tabstop=6 | set shiftwidth=6
-au Filetype rust  set noexpandtab | set tabstop=6 | set shiftwidth=6
-au Filetype swift set tabstop=4 | set shiftwidth=4
+au Filetype go        set noexpandtab | set tabstop=6 | set shiftwidth=4
+au Filetype c         set noexpandtab | set tabstop=6 | set shiftwidth=4
+au Filetype cpp       set noexpandtab | set tabstop=6 | set shiftwidth=4
+au Filetype *sh       set noexpandtab | set tabstop=6 | set shiftwidth=6
+au Filetype rust      set noexpandtab | set tabstop=6 | set shiftwidth=6
+au Filetype swift     set tabstop=4 | set shiftwidth=4
+au Filetype gitcommit set cc=81 | set tw=80
 nnoremap <esc><esc> :noh<CR>
 
 function! FzyCommand(choice_command, vim_command)
