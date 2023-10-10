@@ -121,4 +121,4 @@ set -o vi
 
 bindkey '^x^e' edit-command-line
 
-[ -z $TMUX ] && exec tmux
+[ -z $CODESPACES ] && [ -z $TMUX ] && exec tmux
