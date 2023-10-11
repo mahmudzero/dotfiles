@@ -17,3 +17,5 @@ if [[ $2 != '' ]]; then
 else
 	cd $pwd
 fi
+
+[ -z $CODESPACES ] && [ -z $TMUX ] && exec tmux
