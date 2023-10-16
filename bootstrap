@@ -117,6 +117,20 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
+export GO_HAS_DEFAULT_ALIAS=$(alias | grep "^go=")
+export GO_DEFAULT_ALIAS_PATH=$(which go)
+function usego {
+	alias go=$(which "go$1")
+}
+
+function resetgo {
+	if [[ $GO_HAS_DEFAULT_ALIAS ]]; then
+		alias go=$GO_DEFAULT_ALIAS_PATH
+	else
+		unalias go
+	fi
+}
+
 set -o vi
 
 bindkey '^x^e' edit-command-line
