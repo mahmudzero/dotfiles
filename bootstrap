@@ -50,6 +50,7 @@ alias ffx='open $1 -a Firefox\ Developer\ Edition'
 alias dc='docker-compose'
 alias d='docker'
 alias v='vim'
+alias t='tree'
 
 function gv {
 	ggv_dir=$($2 || ./)
