@@ -69,3 +69,9 @@ if [ -f "$HOME/.tmux.conf" ]; then
 	rm -rf $HOME/.tmux.conf
 fi
 ln -s $PWD/tmux.conf $HOME/.tmux.conf
+
+if [ -f "$HOME/.gitconfig" ]; then
+	echo "Deleting $HOME/.gitconfig"
+	rm -rf $HOME/.gitconfig
+fi
+ln -s $PWD/.gitconfig $HOME/.gitconfig

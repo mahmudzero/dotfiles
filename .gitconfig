@@ -1,0 +1,9 @@
+[user]
+  email = duelwith_mahmud@live.com  
+  name = Mahmud Ahmad
+[core]
+	excludesfile = /Users/mahmudahmad/.gitignore
+	editor = /usr/bin/vim
+
+[includeIf "gitdir:~/Development/work/"]
+  path = .gitconfig-work
