@@ -108,6 +108,16 @@ function gwr {
 	print -s $cmd
 }
 
+function gwd {
+	b=$1
+	cmd="git worktree remove $b"
+	eval ${cmd}
+	print -s $cmd
+	cmd="git branch -D $b"
+	eval ${cmd}
+	print -s $cmd
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/dotfiles/p10k.zsh ]] || source ~/dotfiles/p10k.zsh
 
