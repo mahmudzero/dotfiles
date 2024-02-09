@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "foo"
+
 # step one, check if zsh is installed
 which zsh
 zsh_installed=$?
