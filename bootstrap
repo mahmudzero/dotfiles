@@ -52,6 +52,7 @@ alias dc='docker-compose'
 alias d='docker'
 alias v='vim'
 alias t='tree'
+alias gwl='git worktree list'
 
 function gv {
 	ggv_dir=$($2 || ./)
