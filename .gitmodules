@@ -1,3 +1,6 @@
 [submodule "vim/pack/typescript/start/typescript-vim"]
 	path = vim/pack/typescript/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "vim/pack/plugins/start/vim-terraform"]
+	path = vim/pack/plugins/start/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
