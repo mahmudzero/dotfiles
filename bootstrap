@@ -52,7 +52,7 @@ alias dc='docker-compose'
 alias d='docker'
 alias v='vim'
 alias t='tree'
-alias gwl='git worktree list'
+alias gpn='git push -u origin $(git branch --show-current)'
 
 function gv {
 	ggv_dir=$($2 || ./)
@@ -80,6 +80,7 @@ function ggv {
 	fi
 }
 
+alias gwl='git worktree list'
 function gwn {
 	dir=${2:-$1}
 	cmd="git worktree add -b $1 ../$dir"
