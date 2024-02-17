@@ -1,3 +1,5 @@
+let g:colors_name = "molokai"
+
 :set shell=zsh\ -i
 :set nowrap
 :set expandtab
