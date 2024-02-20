@@ -17,6 +17,7 @@ let g:colors_name = "molokai"
 :hi ColorColumn ctermbg=6
 :set bg=dark
 au Filetype go        set noexpandtab | set tabstop=6 | set shiftwidth=6
+au Filetype lua       set noexpandtab | set tabstop=6 | set shiftwidth=6
 au Filetype make      set noexpandtab | set tabstop=6 | set shiftwidth=6
 au Filetype c         set noexpandtab | set tabstop=6 | set shiftwidth=6
 au Filetype cpp       set noexpandtab | set tabstop=6 | set shiftwidth=6
