@@ -1,2 +1,4 @@
 *.swp
 vim/.netrwhist
+vim/undodir
+nvim/plugin/packer_compiled.lua
