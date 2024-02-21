@@ -24,6 +24,13 @@ if [ $fzy_installed -ne 0 ]; then
 	exit 1
 fi
 
+which nvim
+nvim_installed=$?
+if [ $fzy_installed -ne 0 ]; then
+	echo "Please install nvim (sudo apt install neovim || brew install neovim)"
+	exit 1
+fi
+
 echo "Setting ZSH as main shell..."
 if [ $CODESPACES ]; then
 	sudo chsh -s $(which zsh) $(whoami)
@@ -45,6 +52,17 @@ if [ -d $plvl10k_dir ]; then
 	rm -rf $plvl10k_dir
 fi
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $plvl10k_dir
+
+packer_dir="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
+rm $packer_dir
+git clone --depth 1 https://github.com/wbthomason/packer.nvim $packer_dir
+
+if [ -f "$HOME/.config/nvim" ]; then
+	echo "Deleting $HOME/.config/nvim"
+	rm -rf $HOME/.confg/nvim
+fi
+mkdir -p $HOME/.config
+ln -s $PWD/nvim $HOME/.config/nvim
 
 if [ -f "$HOME/.zshrc" ]; then
 	echo "Deleting $HOME/.zshrc"
