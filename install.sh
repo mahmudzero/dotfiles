@@ -26,7 +26,7 @@ fi
 
 which nvim
 nvim_installed=$?
-if [ $fzy_installed -ne 0 ]; then
+if [ $nvim_installed -ne 0 ]; then
 	echo "Please install nvim (sudo apt install neovim || brew install neovim)"
 	exit 1
 fi
