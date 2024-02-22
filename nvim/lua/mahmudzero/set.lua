@@ -5,6 +5,7 @@ vim.opt.laststatus = 2
 vim.opt.tabstop = 6
 vim.opt.softtabstop = 6
 vim.opt.shiftwidth = 6
+
 vim.opt.expandtab = false
 vim.opt.smartindent = true
 
@@ -24,3 +25,5 @@ vim.opt.scrolloff = 8
 vim.opt.colorcolumn = '121'
 
 vim.opt.backspace='indent,eol,start'
+
+vim.opt.mouse = ''
