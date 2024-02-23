@@ -179,6 +179,7 @@ function resetgo {
 	fi
 }
 
-set -o vi
+alias_vim
 
+set -o vi
 bindkey '^x^e' edit-command-line
