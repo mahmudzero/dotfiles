@@ -41,7 +41,13 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+# Add GO
 export PATH="$HOME/go/bin:$PATH"
+
+# Rust
+export RUSTUP_HOME="$HOME/rust/.rustup"
+export CARGO_HOME="$HOME/rust/.cargo"
+export PATH="$HOME/rust/.cargo/bin:$PATH"
 
 alias code='open $1 -a Visual\ Studio\ Code'
 alias sl='ls'
