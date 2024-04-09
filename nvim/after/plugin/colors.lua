@@ -3,4 +3,4 @@ function TheMe(color)
 	vim.cmd.colorscheme(color)
 end
 
-TheMe('monokai')
+TheMe('rose-pine')
