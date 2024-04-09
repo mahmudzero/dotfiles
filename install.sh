@@ -6,28 +6,35 @@ zsh_installed=$?
 
 if [ $zsh_installed -ne 0 ]; then
   # if not raise an error
-  echo "Please install ZSH before continuing!"
+  echo "please install zsh"
   exit 1
 fi
 
 which fzy
 fzy_installed=$?
 if [ $fzy_installed -ne 0 ]; then
-	echo "Please install fzy (sudo apt install fzy || brew install fzy)"
+	echo "please install fzy"
 	exit 1
 fi
 
 which tmux
 tmux_installed=$?
 if [ $fzy_installed -ne 0 ]; then
-	echo "Please install tmux (sudo apt install tmux || brew install tmux)"
+	echo "please install tmux"
 	exit 1
 fi
 
 which nvim
 nvim_installed=$?
 if [ $nvim_installed -ne 0 ]; then
-	echo "Please install nvim (sudo apt install neovim || brew install neovim)"
+	echo "please install nvim"
+	exit 1
+fi
+
+which rg
+rg_installed=$?
+if [ $nvim_installed -ne 0 ]; then
+	echo "please install ripgrep"
 	exit 1
 fi
 
