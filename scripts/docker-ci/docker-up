@@ -1,0 +1,2 @@
+docker build -t dotfiles .
+docker run --name=dotfiles -d dotfiles &
