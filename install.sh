@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-# step one, check if zsh is installed
 which zsh
 zsh_installed=$?
-
 if [ $zsh_installed -ne 0 ]; then
-  # if not raise an error
-  echo "please install zsh"
-  exit 1
+	# if not raise an error
+	echo "please install zsh"
+	exit 1
 fi
 
 which fzy
@@ -39,12 +37,15 @@ if [ $nvim_installed -ne 0 ]; then
 fi
 
 echo "Setting ZSH as main shell..."
-if [ $CODESPACES ]; then
-	sudo chsh -s $(which zsh) $(whoami)
-else
-	chsh -s $(which zsh)
+echo $SHELL | grep zsh
+zsh_def=$?
+if [ $zsh_def -ne 0 ]; then
+	if [ $CODESPACES ]; then
+		sudo chsh -s $(which zsh) $(whoami)
+	else
+		chsh -s $(which zsh)
+	fi
 fi
-
 echo "ZSH is main shell..."
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -60,13 +61,22 @@ if [ -d $plvl10k_dir ]; then
 fi
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $plvl10k_dir
 
+if [ -f "$HOME/.p10k.zsh" ]; then
+	echo "Deleting $HOME/.p10k.zsh"
+	rm -rf $HOME/.p10k.zsh
+fi
+ln -s $PWD/p10k.zsh $HOME/.p10k.zsh
+
 packer_dir="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-rm $packer_dir
+if [ -d $packer_dir ]; then
+	echo "Deleting $packer_dir"
+	rm -rf $packer_dir
+fi
 git clone --depth 1 https://github.com/wbthomason/packer.nvim $packer_dir
 
-if [ -f "$HOME/.config/nvim" ]; then
+if [ -d "$HOME/.config/nvim" ]; then
 	echo "Deleting $HOME/.config/nvim"
-	rm -rf $HOME/.confg/nvim
+	rm -rf $HOME/.config/nvim
 fi
 mkdir -p $HOME/.config
 ln -s $PWD/nvim $HOME/.config/nvim
@@ -82,12 +92,6 @@ if [ -d "$HOME/.vim" ]; then
 	rm -rf $HOME/.vim
 fi
 ln -s $PWD/vim $HOME/.vim
-
-if [ -f "$HOME/.p10k.zsh" ]; then
-	echo "Deleting $HOME/.p10k.zsh"
-	rm -rf $HOME/.p10k.zsh
-fi
-ln -s $PWD/p10k.zsh $HOME/.p10k.zsh
 
 if [ -f "$HOME/.tmux.conf" ]; then
 	echo "Deleting $HOME/.tmux.conf"

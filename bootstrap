@@ -22,14 +22,42 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
 
-# User configuration
+######### MISC #########################################################################################################
 export EDITOR=vim
 export GIT_EDITOR=vim
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PAGER="less -S"
-export ICLOUD_DRIVE="$HOME/Library/Mobile Documents/"
+
+alias sl='ls'
+alias py='python3'
+alias python='python3'
+alias dc='docker-compose'
+alias d='docker'
+alias v='vim'
+alias t='tree'
+
+function alias_vim {
+	alias vim='nvim'
+}
+
+function unalias_vim {
+	unalias vim
+}
+
+if [ "$(uname)" == "Darwin" ]; then
+	export ICLOUD_DRIVE="$HOME/Library/Mobile Documents/"
+	export PATH="/opt/homebrew/bin:$PATH"
+	export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+	eval $(/opt/homebrew/bin/brew shellenv)
+
+	function nosleep {
+		caffeinate -dimsu
+	}
+else
+	export ICLOUD_DRIVE="$HOME/winhome/iCloudDrive"
+	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
 
 if type brew &>/dev/null
 then
@@ -38,28 +66,9 @@ then
   autoload -Uz compinit
   compinit
 fi
+######### MISC #########################################################################################################
 
-source $ZSH/oh-my-zsh.sh
-
-# Add GO
-export PATH="$HOME/go/bin:$PATH"
-
-# Rust
-export RUSTUP_HOME="$HOME/rust/.rustup"
-export CARGO_HOME="$HOME/rust/.cargo"
-export PATH="$HOME/rust/.cargo/bin:$PATH"
-
-alias code='open $1 -a Visual\ Studio\ Code'
-alias sl='ls'
-alias py='python3'
-alias python='python3'
-alias ffx='open $1 -a Firefox\ Developer\ Edition'
-alias dc='docker-compose'
-alias d='docker'
-alias v='vim'
-alias t='tree'
-alias gpn='git push -u origin $(git branch --show-current)'
-
+######### SEARCH #######################################################################################################
 function gv {
 	ggv_dir=$($2 || ./)
 	gres=$(grep -rnE $1 $ggv_dir | fzy)
@@ -111,16 +120,17 @@ function ggnv {
 		print -s $cmd
 	fi
 }
+######### SEARCH #######################################################################################################
 
-function alias_vim {
-	alias vim='nvim'
+######### GIT ##########################################################################################################
+function gwl {
+	git worktree list
 }
 
-function unalias_vim {
-	unalias vim
+function gpn {
+	git push -u origin $(git branch --show-current)
 }
 
-alias gwl='git worktree list'
 function gwn {
 	dir=${2:-$1}
 	cmd="git worktree add -b $1 ../$dir"
@@ -159,22 +169,26 @@ function gwd {
 	eval ${cmd}
 	print -s $cmd
 }
+######### GIT ##########################################################################################################
 
-function nosleep {
-	caffeinate -dimsu
-}
+######### PROF #########################################################################################################
+[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
+[[ ! -f $HOME/.profile ]] || source $HOME/.profile
+######### PROF #########################################################################################################
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/dotfiles/p10k.zsh ]] || source ~/dotfiles/p10k.zsh
 
-[[ ! -f ~/.profile ]] || source ~/.profile
-
+######### RUBY #########################################################################################################
 which rbenv && eval "$(rbenv init - zsh)"
+######### RUBY #########################################################################################################
 
+######### NODE #########################################################################################################
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+######### NODE #########################################################################################################
 
+######### GO ###########################################################################################################
+export PATH="$HOME/go/bin:$PATH"
 export GO_HAS_DEFAULT_ALIAS=$(alias | grep "^go=")
 export GO_DEFAULT_ALIAS_PATH=$(which go)
 function usego {
@@ -188,8 +202,16 @@ function resetgo {
 		unalias go
 	fi
 }
+######### GO ###########################################################################################################
 
+######### RUST #########################################################################################################
+export RUSTUP_HOME="$HOME/rust/.rustup"
+export CARGO_HOME="$HOME/rust/.cargo"
+export PATH="$HOME/rust/.cargo/bin:$PATH"
+######### RUST #########################################################################################################
+
+######### SET ##########################################################################################################
 alias_vim
-
 set -o vi
 bindkey '^x^e' edit-command-line
+######### SET ##########################################################################################################
