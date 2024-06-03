@@ -26,3 +26,4 @@ else
 fi
 
 [ -z $CODESPACES ] && [ -z $TMUX ] && exec tmux
+[ -v WSLENV ] && cd $HOME
