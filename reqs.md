@@ -5,6 +5,7 @@
 - nvim  // brew
 - brew  // follow brew's instructions
 - rg    // ripgrep, brew
+- build-essential // ubuntu, apt
 - rbenv // from source
 - nvm   // from source
 - go    // follow go's instructions
