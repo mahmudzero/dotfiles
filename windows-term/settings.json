@@ -59,6 +59,7 @@
 		{
 			"elevate": true,
 			"experimental.retroTerminalEffect": false,
+			"experimental.rightClickContextMenu": true,
 			"font": 
 			{
 				"face": "MesloLGS NF"
@@ -330,6 +331,5 @@
 	],
 	"showTabsInTitlebar": false,
 	"themes": [],
-	"useAcrylicInTabRow": true,
-	"experimental.rightClickContextMenu": true
+	"useAcrylicInTabRow": true
 }
