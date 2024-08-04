@@ -28,6 +28,11 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
 export GIT_EDITOR=vim
 export PAGER="less -S"
+export WINROOT="/mnt/c"
+export WINHOME="$WINROOT/Users/duelw"
+export WINTERMSETTINGS="$WINHOME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+export WINAPPDATA="$WINHOME/AppData"
+export D2PREFS="$WINAPPDATA/Roaming/Bungie/DestinyPC/prefs"
 
 alias sl='ls'
 alias py='python3'
