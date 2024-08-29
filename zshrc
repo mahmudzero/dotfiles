@@ -21,7 +21,7 @@ echo "Checking for dotfiles updates..."
 git fetch
 if [[ $(git rev-parse HEAD) != $(git rev-parse @{u}) ]]; then
 	echo "Found updates... updating!"
-	if test -z $(git diff $(git rev-parse @{u}) --name-only | grep zshrc)
+	if test -z $(git diff $(git rev-parse @{u}) --name-only | grep zshrc); then
 		echo "Found updates to base .zshrc... please source \$HOME/.zshrc to get latest updates"
 	fi
 	git pull
