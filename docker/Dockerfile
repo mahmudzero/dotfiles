@@ -8,4 +8,4 @@ FROM base AS dotfiles
 RUN mkdir dotfiles
 ADD ./ ./dotfiles
 
-CMD sleep infinity
+CMD ["sleep", "infinity"]
