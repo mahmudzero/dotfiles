@@ -5,25 +5,30 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 pwd=$PWD
 
-if [[ $1 != 'skip_update' ]] && [[ -o login ]]; then
-	cd ~/dotfiles
-	echo "Checking for dotfiles updates..."
-	git fetch
-	if [[ $(git rev-parse HEAD) != $(git rev-parse @{u}) ]]; then
-		echo "Found updates... updating!"
-		git pull
-		source ~/.zshrc 'skip_update' $pwd
+cd ~/dotfiles
+echo "Checking for dotfiles updates..."
+git fetch
+if [[ $(git rev-parse HEAD) != $(git rev-parse @{u}) ]]; then
+	echo "Found updates... updating!"
+	if test -z $(git diff $(git rev-parse @{u}) --name-only | grep zshrc)
+		echo "Found updates to base .zshrc... please source \$HOME/.zshrc to get latest updates"
 	fi
+	git pull
 fi
 
 source ~/dotfiles/bootstrap
-if [[ $2 != '' ]]; then
-	cd $2
-else
-	cd $pwd
-fi
+cd $pwd
 
 [ -z $CODESPACES ] && [ -z $TMUX ] && exec tmux
 [ -v WSLENV ] && cd $HOME
