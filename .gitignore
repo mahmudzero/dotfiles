@@ -3,4 +3,4 @@ vim/.netrwhist
 vim/undodir
 nvim/plugin/packer_compiled.lua
 dependencies/*
-scripts/docker-dev/container_id.txt
+scripts/docker-dev/container_id.*.txt

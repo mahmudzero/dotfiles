@@ -1,3 +1,12 @@
 #!/usr/bin/env zsh
 
-docker exec -it dotfiles bash
+AARCH=$1
+TAG=""
+
+if [[ $AARCH = "arm" ]]; then
+	TAG="latest-arm"
+elif [[ $AARCH = "x86" ]]; then
+	TAG="latest-x86"
+fi
+
+docker exec -it dotfiles-$TAG bash

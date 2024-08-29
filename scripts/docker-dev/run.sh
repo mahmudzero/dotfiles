@@ -2,5 +2,15 @@
 
 SCRIPT_DIR="$(dirname "$0")"
 
-CID=$(docker run --name dotfiles --detach dotfiles:latest)
-echo $CID > $SCRIPT_DIR/container_id.txt
+AARCH=$1
+TAG=""
+
+if [[ $AARCH = "arm" ]]; then
+	TAG="latest-arm"
+elif [[ $AARCH = "x86" ]]; then
+	TAG="latest-x86"
+fi
+
+
+CID=$(docker run --name dotfiles-$TAG --detach dotfiles:$TAG)
+echo $CID > $SCRIPT_DIR/container_id.$TAG.txt
