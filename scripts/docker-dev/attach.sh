@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-AARCH=$1
+AARCH="${1:-arm}"
 TAG=""
 
 if [[ $AARCH = "arm" ]]; then

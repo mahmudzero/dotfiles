@@ -5,7 +5,7 @@ ROOT_DIR="$SCRIPT_DIR/../.."
 DOCKER_DIR="$ROOT_DIR/docker"
 DOCKERFILE=$DOCKER_DIR/Dockerfile
 
-AARCH=$1
+AARCH="${1:-arm}"
 TAG=""
 BUILDPLATFORM=""
 

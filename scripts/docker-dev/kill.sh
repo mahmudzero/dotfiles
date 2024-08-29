@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$(dirname "$0")"
 
-AARCH=$1
+AARCH="${1:-arm}"
 TAG=""
 
 if [[ $AARCH = "arm" ]]; then
