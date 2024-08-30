@@ -1,37 +1,38 @@
 #!/usr/bin/env bash
 
-which zsh
-zsh_installed=$?
-if [ $zsh_installed -ne 0 ]; then
+type zsh &>/dev/null
+if [ $? -ne 0 ]; then
 	# if not raise an error
 	echo "please install zsh"
 	exit 1
 fi
 
-which fzy
-fzy_installed=$?
-if [ $fzy_installed -ne 0 ]; then
+type fzy &>/dev/null
+if [ $? -ne 0 ]; then
 	echo "please install fzy"
 	exit 1
 fi
 
-which tmux
-tmux_installed=$?
-if [ $fzy_installed -ne 0 ]; then
+type tmux &>/dev/null
+if [ $? -ne 0 ]; then
 	echo "please install tmux"
 	exit 1
 fi
 
-which nvim
-nvim_installed=$?
-if [ $nvim_installed -ne 0 ]; then
+type vim &>/dev/null
+if [ $? -ne 0 ]; then
+	echo "please install vim"
+	exit 1
+fi
+
+type nvim &>/dev/null
+if [ $? -ne 0 ]; then
 	echo "please install nvim"
 	exit 1
 fi
 
-which rg
-rg_installed=$?
-if [ $nvim_installed -ne 0 ]; then
+type rg &>/dev/null
+if [ $? -ne 0 ]; then
 	echo "please install ripgrep"
 	exit 1
 fi
