@@ -12,5 +12,5 @@ elif [[ $AARCH = "x86" ]]; then
 fi
 
 
-CID=$(docker run --name dotfiles-$TAG --detach dotfiles:$TAG)
+CID=$(docker run --name dotfiles-$TAG --network host --detach dotfiles:$TAG)
 echo $CID > $SCRIPT_DIR/container_id.$TAG.txt

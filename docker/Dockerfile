@@ -5,7 +5,7 @@ RUN apt upgrade
 RUN apt install -y git curl build-essential
 
 FROM base AS dotfiles
-RUN mkdir dotfiles
+RUN mkdir ./root/dotfiles
 ADD ./ ./root/dotfiles
 
 CMD ["sleep", "infinity"]
