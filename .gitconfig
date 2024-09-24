@@ -4,7 +4,7 @@
 [core]
 	excludesfile = /Users/mahmudahmad/.gitignore
 	editor = /usr/bin/vim
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+# [url "ssh://git@github.com/"]
+# 	insteadOf = https://github.com/
 [includeIf "gitdir:~/Development/work/"]
   path = .gitconfig-work
