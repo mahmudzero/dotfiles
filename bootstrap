@@ -63,8 +63,9 @@ fi
 
 ######### SEARCH #######################################################################################################
 function gv {
-	ggv_dir=$($2 || ./)
-	gres=$(grep -rnE $1 $ggv_dir | fzy)
+	ggv_dir="./"
+	maxc=${2:--1}
+	gres=$(grep -rnE --max-count=$maxc $1 $ggv_dir | fzy)
 	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 	echo "reading file $ggv_file"
@@ -76,8 +77,9 @@ function gv {
 }
 
 function ggv {
-	ggv_dir=$($2 || ./)
-	gres=$(git grep -rnE $1 $ggv_dir | fzy)
+	ggv_dir="./"
+	maxc=${2:--1}
+	gres=$(git grep -rnE --max-count=$maxc $1 $ggv_dir | fzy)
 	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 	echo "reading file $ggv_file"
@@ -89,8 +91,9 @@ function ggv {
 }
 
 function gnv {
-	ggv_dir=$($2 || ./)
-	gres=$(grep -rnE $1 $ggv_dir | fzy)
+	ggv_dir="./"
+	maxc=${2:--1}
+	gres=$(grep -rnE --max-count=$maxc $1 $ggv_dir | fzy)
 	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 	echo "reading file $ggv_file"
@@ -102,8 +105,9 @@ function gnv {
 }
 
 function ggnv {
-	ggv_dir=$($2 || ./)
-	gres=$(git grep -rnE $1 $ggv_dir | fzy)
+	ggv_dir="./"
+	maxc=${2:--1}
+	gres=$(git grep -rnE --max-count=$maxc $1 $ggv_dir | fzy)
 	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 	echo "reading file $ggv_file"
