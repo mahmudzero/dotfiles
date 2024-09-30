@@ -34,6 +34,10 @@ function unalias_vim {
 	unalias vim
 }
 
+function zedo {
+	TMUX_PANE="" TMUX="" zed "$@"
+}
+
 if [[ "$(uname)" == "Darwin" ]]; then
 	export ICLOUD_DRIVE="$HOME/Library/Mobile Documents/"
 	export PATH="/opt/homebrew/bin:$PATH"
