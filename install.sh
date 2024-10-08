@@ -105,3 +105,9 @@ if [ -f "$HOME/.gitconfig" ]; then
 	rm -rf $HOME/.gitconfig
 fi
 ln -s $PWD/.gitconfig $HOME/.gitconfig
+
+if [ -d "$HOME/.config/zed" ]; then
+	echo "Deleting $HOME/.config/zed"
+	rm -rf $HOME/.config/zed
+fi
+ln -s $PWD/zed/zed $HOME/.config/zed
