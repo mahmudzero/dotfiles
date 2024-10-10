@@ -34,6 +34,10 @@
 		"JSON": {
 			"tab_size": 4,
 			"hard_tabs": true
+		},
+		"YAML": {
+			"tab_size": 4,
+			"hard_tabs": false
 		}
 	}
 }
