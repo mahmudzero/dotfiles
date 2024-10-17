@@ -86,7 +86,14 @@ function gv {
 function ggv {
 	ggv_dir="./"
 	maxc=${2:--1}
-	gres=$(git grep -rnE --max-count=$maxc $1 $ggv_dir | fzy)
+	cmd=""
+	if [ $maxc -ge 1 ]; then
+		cmd="git grep -rnE --max-count=$maxc $1 $ggv_dir | fzy"
+	else
+		cmd="git grep -rnE $1 $ggv_dir | fzy"
+	fi
+
+	gres=$(eval $cmd)
 	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 	echo "reading file $ggv_file"
@@ -226,7 +233,7 @@ export PATH="$HOME/rust/.cargo/bin:$PATH"
 ######### RUST #########################################################################################################
 
 ######### SET ##########################################################################################################
-type nvim &>/dev/null && alias_vim
+[[ $USER != "mahpi" ]] && type nvim &>/dev/null && alias_vim
 set -o vi
 bindkey '^x^e' edit-command-line
 ######### SET ##########################################################################################################
