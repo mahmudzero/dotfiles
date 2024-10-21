@@ -65,14 +65,13 @@ fi
 function gv {
 	ggv_dir="./"
 	maxc=${2:--1}
-	cmd=""
+	gres=""
 	if [ $maxc -ge 1 ]; then
-		cmd="grep -rnE --max-count=$maxc $1 $ggv_dir | fzy"
+		gres=$(grep -rnE --max-count=$maxc $1 $ggv_dir | fzy)
 	else
-		cmd="grep -rnE $1 $ggv_dir | fzy"
+		gres=$(grep -rnE $1 $ggv_dir | fzy)
 	fi
 
-	gres=$(eval $cmd)
 	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 	echo "reading file $ggv_file"
@@ -86,54 +85,18 @@ function gv {
 function ggv {
 	ggv_dir="./"
 	maxc=${2:--1}
-	cmd=""
+	gres=""
 	if [ $maxc -ge 1 ]; then
-		cmd="git grep -rnE --max-count=$maxc $1 $ggv_dir | fzy"
+		gres=$(git grep -rnE --max-count=$maxc $1 $ggv_dir | fzy)
 	else
-		cmd="git grep -rnE $1 $ggv_dir | fzy"
+		gres=$(git grep -rnE $1 $ggv_dir | fzy)
 	fi
 
-	gres=$(eval $cmd)
 	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
 	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
 	echo "reading file $ggv_file"
 	if [[ $ggv_file ]]; then
 		cmd="vim $ggv_file $ggv_ln"
-		eval ${cmd}
-		print -s $cmd
-	fi
-}
-
-function gnv {
-	ggv_dir="./"
-	maxc=${2:--1}
-	cmd=""
-	if [ $maxc -ge 1 ]; then
-		cmd="grep -rnE --max-count=$maxc $1 $ggv_dir | fzy"
-	else
-		cmd="grep -rnE $1 $ggv_dir | fzy"
-	fi
-
-	gres=$(eval $cmd)
-	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
-	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
-	echo "reading file $ggv_file"
-	if [[ $ggv_file ]]; then
-		cmd="nvim $ggv_file $ggv_ln"
-		eval ${cmd}
-		print -s $cmd
-	fi
-}
-
-function ggnv {
-	ggv_dir="./"
-	maxc=${2:--1}
-	gres=$(git grep -rnE --max-count=$maxc $1 $ggv_dir | fzy)
-	ggv_file=$(echo $gres | awk '{split($0, a, ":"); print a[1]}')
-	ggv_ln=$(echo $gres | awk '{split($0, a, ":"); print("+" a[2])}')
-	echo "reading file $ggv_file"
-	if [[ $ggv_file ]]; then
-		cmd="nvim $ggv_file $ggv_ln"
 		eval ${cmd}
 		print -s $cmd
 	fi
