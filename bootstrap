@@ -38,6 +38,21 @@ function zedo {
 	TMUX_PANE="" TMUX="" zed "$@"
 }
 
+function code {
+	TMUX_PANE="" TMUX="" open -a vsc "$@"
+}
+
+function codei {
+	TMUX_PANE="" TMUX="" open -a vsci "$@"
+}
+
+function dprune-all {
+	docker kill $(docker ps -q)
+	docker system prune -af --volumes
+	docker volume kill $(docker volume ls -q)
+	echo $(docker system df)
+}
+
 if [[ "$(uname)" == "Darwin" ]]; then
 	export ICLOUD_DRIVE="$HOME/Library/Mobile Documents/"
 	export PATH="/opt/homebrew/bin:$PATH"
