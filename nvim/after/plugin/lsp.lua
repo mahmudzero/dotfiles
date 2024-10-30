@@ -6,28 +6,28 @@ local lsp = require('lsp-zero')
 -- })
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = cmp.mapping.preset.insert({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
+	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+	-- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+	['<Tab>'] = cmp.mapping.confirm({ select = true }),
+	["<C-Space>"] = cmp.mapping.complete(),
 })
 
 -- cmp_mappings['<Tab>'] = vim.NIL
 cmp_mappings['<S-Tab>'] = vim.NIL
 
 cmp.setup({
-  mapping = cmp_mappings,
-  sources = {
-	{ name = "buffer" },
-	{ name = "path" },
-	{ name = "luasnip" },
-	{ name = "nvim_lsp" },
-	{ name = "nvim_lua" },
+	mapping = cmp_mappings,
+	sources = {
+		{ name = "buffer" },
+		{ name = "path" },
+		{ name = "luasnip" },
+		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
 
-  }
+	},
 })
 
 -- figure this out, idk how to do it
@@ -35,16 +35,16 @@ cmp.setup({
 --     suggest_lsp_servers = false,
 -- })
 lsp.set_sign_icons({
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
+	error = 'E',
+	warn = 'W',
+	hint = 'H',
+	info = 'I'
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	desc = 'LSP actions',
 	callback = function(event)
-		local opts = {buffer = event.bufnr, remap = false}
+		local opts = { buffer = event.bufnr, remap = false }
 
 		vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 		vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
 		vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 		vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-  end,
+	end,
 })
 
 lsp.format_on_save({
@@ -65,25 +65,25 @@ lsp.format_on_save({
 		timeout_ms = 10000,
 	},
 	servers = {
-		[ 'lua_ls' ] = { 'lua' },
-		[ 'gopls' ] = { 'go' },
+		['lua_ls'] = { 'lua' },
+		['gopls'] = { 'go' },
 	}
 })
 
 lsp.setup()
 
-require('lspconfig').lua_ls.setup{
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
+require('lspconfig').lua_ls.setup {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { 'vim' }
+			}
+		}
+	}
 }
 
-require('lspconfig').gopls.setup{}
+require('lspconfig').gopls.setup {}
 
 vim.diagnostic.config({
-    virtual_text = true
+	virtual_text = true
 })
