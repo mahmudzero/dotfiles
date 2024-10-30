@@ -10,15 +10,24 @@ local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = cmp.mapping.preset.insert({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
   ["<C-Space>"] = cmp.mapping.complete(),
 })
 
-cmp_mappings['<Tab>'] = vim.NIL
+-- cmp_mappings['<Tab>'] = vim.NIL
 cmp_mappings['<S-Tab>'] = vim.NIL
 
 cmp.setup({
-  mapping = cmp_mappings
+  mapping = cmp_mappings,
+  sources = {
+	{ name = "buffer" },
+	{ name = "path" },
+	{ name = "luasnip" },
+	{ name = "nvim_lsp" },
+	{ name = "nvim_lua" },
+
+  }
 })
 
 -- figure this out, idk how to do it
