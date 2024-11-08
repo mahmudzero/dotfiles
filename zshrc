@@ -20,14 +20,20 @@ export ZSH="$HOME/.oh-my-zsh"
 pwd=$PWD
 
 cd ~/dotfiles
-echo "Checking for dotfiles updates..."
-git fetch
-if [[ $(git rev-parse HEAD) != $(git rev-parse @{u}) ]]; then
-	echo "Found updates... updating!"
-	if test -z $(git diff $(git rev-parse @{u}) --name-only | grep zshrc); then
-		echo "Found updates to base .zshrc... please source \$HOME/.zshrc to get latest updates"
+
+last_update=$(cat $HOME/dotfiles/dependencies/last_update.txt)
+current_date=$(date +%s)
+if (( ($current_date - $last_update) >= (24 * 3600) )); then
+	echo "24hrs since last update... Checking for dotfiles updates..."
+	echo $current_date > $HOME/dotfiles/dependencies/last_update.txt
+	git fetch
+	if [[ $(git rev-parse HEAD) != $(git rev-parse @{u}) ]]; then
+		echo "Found updates... updating!"
+		if test -z $(git diff $(git rev-parse @{u}) --name-only | grep zshrc); then
+			echo "Found updates to base .zshrc... please source \$HOME/.zshrc to get latest updates"
+		fi
+		git pull
 	fi
-	git pull
 fi
 
 source ~/dotfiles/bootstrap
