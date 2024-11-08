@@ -41,6 +41,25 @@ lsp.set_sign_icons({
 	info = 'I'
 })
 
+vim.diagnostic.config({
+	virtual_text = false, -- turn off in-line errors
+})
+
+vim.api.nvim_set_keymap(
+	'n', '<leader>d', ':lua vim.diagnostic.open_float()<CR>',
+	{ noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+	'n', '<leader>dn', ':lua vim.diagnostic.goto_next()<CR>',
+	{ noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+	'n', '<leader>dp', ':lua vim.diagnostic.goto_prev()<CR>',
+	{ noremap = true, silent = true }
+)
+
 vim.api.nvim_create_autocmd('LspAttach', {
 	desc = 'LSP actions',
 	callback = function(event)
