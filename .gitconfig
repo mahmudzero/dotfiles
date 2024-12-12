@@ -6,7 +6,7 @@
 	editor = /usr/bin/vim
 [pull]
 	rebase = false
-# [url "ssh://git@github.com/"]
-# 	insteadOf = https://github.com/
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
 [includeIf "gitdir:~/Development/work/"]
   path = .gitconfig-work
