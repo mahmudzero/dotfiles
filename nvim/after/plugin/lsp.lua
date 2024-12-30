@@ -5,6 +5,9 @@ local lsp = require('lsp-zero')
 --   'gopls',
 -- })
 
+-- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers,
+-- this list has all the language servers we need, and how to install them
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = cmp.mapping.preset.insert({
@@ -102,6 +105,14 @@ require('lspconfig').lua_ls.setup {
 }
 
 require('lspconfig').gopls.setup {}
+
+require('lspconfig').ts_ls.setup {
+	filetypes = {
+		"javascript",
+		"typescript",
+		"jsx",
+	}
+}
 
 vim.diagnostic.config({
 	virtual_text = true
