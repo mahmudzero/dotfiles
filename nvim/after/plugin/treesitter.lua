@@ -3,7 +3,7 @@ require 'nvim-treesitter.configs'.setup {
 	ensure_installed = {
 		'c', 'go', 'rust',
 		'dockerfile',
-		'lua', 'ruby', 'typescript', 'javascript',
+		'lua', 'ruby', 'typescript', 'javascript', 'tsx',
 		'markdown',
 	},
 
