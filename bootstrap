@@ -24,7 +24,7 @@ alias python='python3'
 alias dc='docker-compose'
 alias d='docker'
 alias v='vim'
-alias t='tree'
+alias t='tree --gitignore'
 
 function alias_vim {
 	alias vim='nvim'
