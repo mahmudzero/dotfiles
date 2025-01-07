@@ -39,5 +39,10 @@ fi
 source ~/dotfiles/bootstrap
 cd $pwd
 
-[ -z $TMUX ] && (([[ -t 0 ]] && [[ -t 1 ]] && [[ -t 2 ]]) || [ -z $CODESPACES ]) && exec tmux
+if [ -z $CODESPACES ]; then
+	[ -z $TMUX ] && exec tmux
+else
+	[ -z $TMUX ] && [[ -t 0 ]] && [[ -t 1 ]] && [[ -t 2 ]] && exec tmux
+fi
+
 [ -v WSLENV ] && cd $HOME
