@@ -123,7 +123,7 @@ function gwl {
 	git worktree list
 }
 
-function gpc {
+function gbc {
 	git branch | cat
 }
 
