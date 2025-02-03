@@ -84,17 +84,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end,
 })
 
-lsp.format_on_save({
-	format_ops = {
-		async = false,
-		timeout_ms = 10000,
-	},
-	servers = {
-		['lua_ls'] = { 'lua' },
-		['gopls'] = { 'go' },
-	}
-})
-
 lsp.setup()
 
 require('lspconfig').lua_ls.setup {
@@ -161,6 +150,18 @@ require('lspconfig').omnisharp.setup {
 		},
 	},
 }
+
+lsp.format_on_save({
+	format_ops = {
+		async = false,
+		timeout_ms = 10000,
+	},
+	servers = {
+		['lua_ls'] = { 'lua' },
+		['gopls'] = { 'go' },
+		-- ['omnisharp'] = { 'cs' },
+	}
+})
 
 vim.diagnostic.config({
 	virtual_text = true
