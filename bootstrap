@@ -62,8 +62,11 @@ if [[ "$(uname)" == "Darwin" ]]; then
 	function nosleep {
 		caffeinate -dimsu
 	}
+
+	export MACOS=true
 else
 	export ICLOUD_DRIVE="$HOME/winhome/iCloudDrive"
+	export WSL=true
 	[[ ! -f /home/linuxbrew/.linuxbrew/bin/brew ]] || eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
