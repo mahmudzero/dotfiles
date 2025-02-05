@@ -48,6 +48,7 @@ if [ $zsh_def -ne 0 ]; then
 	fi
 fi
 echo "ZSH is main shell..."
+echo 0 > $HOME/dotfiles/dependencies/last_update.txt
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	# install oh my zsh
