@@ -112,7 +112,7 @@ require('lspconfig').ts_ls.setup {
 
 local omnisharpdll_path = "/Users/mahmudahmad/dotfiles/dependencies/omnisharp-60/OmniSharp.dll"
 if os.getenv("MACOS") ~= "true" then
-	omnisharpdll_path = "/home/users/mahmudahmad/dotfiles/dependencies/omnisharpdll-60/OmniSharp.dll"
+	omnisharpdll_path = "/home/mahmudahmad/dotfiles/dependencies/omnisharp-60/OmniSharp.dll"
 end
 
 -- https://github.com/OmniSharp/omnisharp-roslyn?tab=readme-ov-file
