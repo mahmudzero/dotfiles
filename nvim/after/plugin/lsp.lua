@@ -10,6 +10,10 @@ local lsp = require('lsp-zero')
 -- -- lua_ls https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
 -- -- gopls  https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#gopls
 -- -- ts_ls  https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ts_ls
+-- c#
+-- -- https://github.com/OmniSharp/omnisharp-roslyn?tab=readme-ov-file
+-- -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#omnisharp
+
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
