@@ -18,4 +18,4 @@ elif [[ $AARCH = "x86" ]]; then
 fi
 
 
-docker build . --tag dotfiles:$TAG --file $DOCKERFILE --platform $BUILDPLATFORM
+docker build . --platform $BUILDPLATFORM --tag dotfiles:$TAG --file $DOCKERFILE
