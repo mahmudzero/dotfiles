@@ -168,7 +168,7 @@ function gwd {
 	cmd="git worktree remove $b"
 	eval ${cmd}
 	print -s $cmd
-	cmd="git branch -D $b"
+	cmd="git branch --force -D $b"
 	eval ${cmd}
 	print -s $cmd
 }
