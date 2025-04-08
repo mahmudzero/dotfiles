@@ -55,4 +55,12 @@ return require('packer').startup(function(use)
 			{ 'rafamadriz/friendly-snippets' },
 		}
 	}
+
+	use({
+		'github/copilot.vim',
+		-- as = 'copilot',
+		-- config = function()
+		-- 	vim.cmd('colorscheme monokai')
+		-- end
+	})
 end)
