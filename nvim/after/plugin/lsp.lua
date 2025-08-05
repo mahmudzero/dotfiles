@@ -7,9 +7,10 @@ local lsp = require('lsp-zero')
 
 -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers,
 -- this list has all the language servers we need, and how to install them
--- -- lua_ls https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
--- -- gopls  https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#gopls
--- -- ts_ls  https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ts_ls
+-- -- lua_ls    https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
+-- -- gopls     https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#gopls
+-- -- ts_ls     https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ts_ls
+-- -- cland (c) https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#clangd
 -- c#
 -- -- https://github.com/OmniSharp/omnisharp-roslyn?tab=readme-ov-file
 -- -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#omnisharp
@@ -110,6 +111,8 @@ require('lspconfig').ts_ls.setup {
 	}
 }
 
+require('lspconfig').clangd.setup {}
+
 local omnisharpdll_path = "/Users/mahmudahmad/dotfiles/dependencies/omnisharp-60/OmniSharp.dll"
 if os.getenv("MACOS") ~= "true" then
 	omnisharpdll_path = "/home/mahmudahmad/dotfiles/dependencies/omnisharp-60/OmniSharp.dll"
@@ -154,7 +157,6 @@ require('lspconfig').omnisharp.setup {
 		},
 	},
 }
-
 lsp.format_on_save({
 	format_ops = {
 		async = false,
@@ -164,6 +166,7 @@ lsp.format_on_save({
 		['lua_ls'] = { 'lua' },
 		['gopls'] = { 'go' },
 		['omnisharp'] = { 'cs' },
+		['c'] = { 'clangd' },
 	}
 })
 
