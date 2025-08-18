@@ -113,6 +113,8 @@ require('lspconfig').ts_ls.setup {
 
 require('lspconfig').clangd.setup {}
 
+require('lspconfig').pylsp.setup {}
+
 local omnisharpdll_path = "/Users/mahmudahmad/dotfiles/dependencies/omnisharp-60/OmniSharp.dll"
 if os.getenv("MACOS") ~= "true" then
 	omnisharpdll_path = "/home/mahmudahmad/dotfiles/dependencies/omnisharp-60/OmniSharp.dll"
