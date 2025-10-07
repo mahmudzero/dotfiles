@@ -106,8 +106,13 @@ require('lspconfig').gopls.setup {}
 require('lspconfig').ts_ls.setup {
 	filetypes = {
 		"javascript",
+		"javascriptreact",
+		"javascript.jsx",
 		"typescript",
+		"typescriptreact",
+		"typescript.jsx",
 		"jsx",
+		"tsx",
 	}
 }
 

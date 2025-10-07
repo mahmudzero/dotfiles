@@ -25,6 +25,7 @@ alias dc='docker-compose'
 alias d='docker'
 alias v='vim'
 alias t='tree --gitignore'
+# alias git='GIT_SSH_COMMAND="ssh -vvv" git'
 
 function alias_vim {
 	alias vim='nvim'
