@@ -94,7 +94,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 lsp.setup()
 
-require('lspconfig').lua_ls.setup {
+vim.lsp.config('lua_ls', {
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -102,11 +102,11 @@ require('lspconfig').lua_ls.setup {
 			}
 		}
 	}
-}
+})
 
-require('lspconfig').gopls.setup {}
+vim.lsp.config('gopls', {})
 
-require('lspconfig').ts_ls.setup {
+vim.lsp.config('ts_ls', {
 	filetypes = {
 		"javascript",
 		"javascriptreact",
@@ -117,21 +117,21 @@ require('lspconfig').ts_ls.setup {
 		"jsx",
 		"tsx",
 	}
-}
+})
 
-require('lspconfig').clangd.setup {
+vim.lsp.config('clangd', {
 	filetypes = {
 		"c",
 		"cpp",
 		"h",
 		"m",
 	}
-}
+})
 
-require('lspconfig').pylsp.setup {}
--- require('lspconfig').pyright.setup {}
+vim.lsp.config('pylsp', {})
+-- vim.lsp.config('pyright', {}
 
-require('lspconfig').protols.setup {}
+vim.lsp.config('protols', {})
 
 local omnisharpdll_path = "/Users/mahmudahmad/dotfiles/dependencies/omnisharp-60/OmniSharp.dll"
 if os.getenv("MACOS") ~= "true" then
@@ -140,7 +140,7 @@ end
 
 -- https://github.com/OmniSharp/omnisharp-roslyn?tab=readme-ov-file
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#omnisharp
-require('lspconfig').omnisharp.setup {
+vim.lsp.config('omnisharp', {
 	cmd = { "dotnet", omnisharpdll_path },
 	settings = {
 		FormattingOptions = {
@@ -176,7 +176,7 @@ require('lspconfig').omnisharp.setup {
 			IncludePrereleases = false,
 		},
 	},
-}
+})
 lsp.format_on_save({
 	format_ops = {
 		async = false,
