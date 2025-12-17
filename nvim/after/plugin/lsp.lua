@@ -119,7 +119,14 @@ require('lspconfig').ts_ls.setup {
 	}
 }
 
-require('lspconfig').clangd.setup {}
+require('lspconfig').clangd.setup {
+	filetypes = {
+		"c",
+		"cpp",
+		"h",
+		"m",
+	}
+}
 
 require('lspconfig').pylsp.setup {}
 -- require('lspconfig').pyright.setup {}
