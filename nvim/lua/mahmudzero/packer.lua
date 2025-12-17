@@ -29,8 +29,7 @@ return require('packer').startup(function(use)
 	})
 
 
-	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-	use('nvim-treesitter/playground')
+	use{'nvim-treesitter/nvim-treesitter', branch = 'master', run = ':TSUpdate' }
 	use('tpope/vim-fugitive')
 	use('nvim-treesitter/nvim-treesitter-context')
 
