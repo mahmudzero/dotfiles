@@ -129,7 +129,6 @@ vim.lsp.config('clangd', {
 })
 
 vim.lsp.config('pylsp', {})
--- vim.lsp.config('pyright', {}
 
 vim.lsp.config('protols', {})
 
@@ -177,6 +176,18 @@ vim.lsp.config('omnisharp', {
 		},
 	},
 })
+
+
+vim.lsp.enable({
+	'lua_ls',
+	'gopls',
+	'ts_ls',
+	'clangd',
+	'pylsp',
+	'protols',
+	'omnisharp',
+})
+
 lsp.format_on_save({
 	format_ops = {
 		async = false,

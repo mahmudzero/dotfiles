@@ -40,11 +40,11 @@ function zedo {
 }
 
 function code {
-	TMUX_PANE="" TMUX="" open -a vsc "$@"
+	TMUX_PANE="" TMUX="" open -a Visual\ Studio\ Code "$@"
 }
 
 function codei {
-	TMUX_PANE="" TMUX="" open -a vsci "$@"
+	TMUX_PANE="" TMUX="" open -a Visual\ Studio\ Code\ -\ Insiders "$@"
 }
 
 function dprune-all {
