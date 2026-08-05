@@ -37,6 +37,13 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
+type tree-sitter &>/dev/null
+if [ $? -ne 0 ]; then
+	echo "please install tree-sitter cli, see: https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md"
+	echo "most likely... wget bin and mv /usr/local/bin"
+	exit 1
+fi
+
 echo "Setting ZSH as main shell..."
 echo $SHELL | grep zsh
 zsh_def=$?
