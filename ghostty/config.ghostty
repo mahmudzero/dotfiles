@@ -1,1 +1,5 @@
 copy-on-select = clipboard
+
+theme = Monokai Remastered
+background-opacity = 0.9
+background-blur = true
